@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            The Counter
+        </title>
+    </head>
+    <body>
+        <div class="container" style="text-align: center">
+            <p> The Winners below: info is in a python list, indexes match, use your imagination</p>
+            <p>{{ session['users'] }}</p>
+            <p>{{ session['game_history'] }}</p>
+        </div>
+
+        <form action="/">
+            <input type="submit" value="Go Back!">
+        </form>
+
+    </body>
+</html>

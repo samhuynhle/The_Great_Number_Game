@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            The Counter
+        </title>
+    </head>
+    <body>
+        <div class="container" style="text-align: center">
+            <h3> Welcome to the Great Number Game!</h3>
+            <p> I'm thinking of a number between 1 and 100</p>
+            <p> Warning: You Only Have 5 Guesses to Win!</p>
+            <p> Take a guess!</p>
+            <p> test: {{ session['random_integer']}}</p>
+            <div style="height: 200px; width: 200px;
+                        text-align: center; 
+                        display:{{ session['show_hint'] }};
+                        background-color: {{ session['hint_color'] }}">
+                <h1>{{ session['hint'] }}</h1>
+                <p style="display: {{ session['show_guess_tracker'] }}">
+                    Your number of guesses: {{ session['guess_tracker'] }}
+                </p>
+                <p style="display: {{ session['show_guess_tracker'] }}"> 
+                    The correct asnwer was: {{ session['random_integer'] }}
+                </p>
+            </div>
+            <br>
+            <form action="/process" method="POST" style="   margin-top: 25px;
+                                                            display:{{ session['show_submit'] }}">
+                <input type="text" name="user_guess" placeholder='Please guess an integer'>
+                <input type="submit" value="Submit">
+            </form>
+
+            <form action="/reset_game" method="POST" style="display:{{ session['show_reset'] }}">
+                <label style="display: {{ session['show_winner_name_input'] }}">Save your name to our leaderboards!</label>
+                <input type="text" name="user_name" value="Guest" style="display: {{ session['show_winner_name_input'] }}">
+                <br>
+                <input type="submit" value="Play Again!" style="margin-top: 25px">
+            </form>
+            
+            <form action="/leaderboards" style="margin-top: 25px">
+                <input type="submit" value="View Leaderboards">
+            </form>
+        </div>
+
+
+    </body>
+</html>
